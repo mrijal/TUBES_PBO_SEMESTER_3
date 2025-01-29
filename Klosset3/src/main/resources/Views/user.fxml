@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.UserDashboardController">
+    <children>
+        <Label text="User Dashboard" layoutX="150" layoutY="20" style="-fx-font-size: 24px;" />
+        <TableView fx:id="assetsTable" layoutX="50" layoutY="80" prefWidth="500" prefHeight="300">
+            <columns>
+                <TableColumn text="Nama Aset" fx:id="colName" />
+                <TableColumn text="Kategori" fx:id="colCategory" />
+                <TableColumn text="Status" fx:id="colStatus" />
+            </columns>
+        </TableView>
+        <Button text="Ajukan Aset" layoutX="200" layoutY="400" onAction="#openAddAssetForm" />
+    </children>
+</AnchorPane>

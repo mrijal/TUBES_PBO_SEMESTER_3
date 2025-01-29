@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.Scene?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.AdminDashboardController">
+    <children>
+        <Label text="Admin Dashboard" layoutX="150" layoutY="20" style="-fx-font-size: 24px;" />
+        <TableView fx:id="assetsTable" layoutX="50" layoutY="80" prefWidth="500" prefHeight="300">
+            <columns>
+                <TableColumn text="ID" fx:id="colId" />
+                <TableColumn text="Nama Aset" fx:id="colName" />
+                <TableColumn text="Kategori" fx:id="colCategory" />
+                <TableColumn text="Status" fx:id="colStatus" />
+            </columns>
+        </TableView>
+        <Button text="Setujui" layoutX="100" layoutY="400" onAction="#approveAsset" />
+        <Button text="Tolak" layoutX="200" layoutY="400" onAction="#rejectAsset" />
+        <Button text="Hapus" layoutX="300" layoutY="400" onAction="#deleteAsset" />
+    </children>
+</AnchorPane>

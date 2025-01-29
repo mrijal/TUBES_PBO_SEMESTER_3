@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.LogActivityController">
+    <children>
+        <Label text="Log Aktivitas" layoutX="150" layoutY="20" style="-fx-font-size: 24px;" />
+        <TableView fx:id="logTable" layoutX="50" layoutY="80" prefWidth="500" prefHeight="300">
+            <columns>
+                <TableColumn text="User" fx:id="colUser" />
+                <TableColumn text="Aksi" fx:id="colAction" />
+                <TableColumn text="Aset" fx:id="colAsset" />
+                <TableColumn text="Waktu" fx:id="colTimestamp" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

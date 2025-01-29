@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controllers.MenuController">
+    <Button fx:id="dashboardButton" text="Dashboard" onAction="#openDashboard"/>
+    <Button fx:id="reportButton" text="Laporan" onAction="#openReport"/>
+    <Button fx:id="approvalButton" text="Persetujuan Aset" onAction="#openApproval"/>
+</VBox>
