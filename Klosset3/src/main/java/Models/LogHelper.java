@@ -2,6 +2,7 @@ package models;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import Models.DatabaseConnection;
 
 public class LogHelper {
     public static void logAction(int userId, String action, int assetId) {

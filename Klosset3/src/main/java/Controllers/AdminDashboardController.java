@@ -6,8 +6,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import models.Asset;
-import models.DatabaseConnection;
+import Models.Asset;
+import Models.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

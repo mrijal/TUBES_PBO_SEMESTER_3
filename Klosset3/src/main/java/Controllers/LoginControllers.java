@@ -1,5 +1,6 @@
 package controllers;
 
+import Models.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -8,7 +9,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import models.DatabaseConnection;
+import Models.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,7 +39,7 @@ public class LoginControllers {
                 if (role.equals("admin")) {
                     openDashboard("/views/admin_dashboard.fxml");
                 } else if (role.equals("user")) {
-                    openDashboard("/views/user_dashboard.fxml");
+                    openDashboard("/views/user.fxml");
                 }
             } else {
                 Alert alert = new Alert(AlertType.ERROR);

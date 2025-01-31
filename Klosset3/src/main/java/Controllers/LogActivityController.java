@@ -4,8 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import models.ActivityLog;
-import models.DatabaseConnection;
+import Models.ActivityLog;
+import Models.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

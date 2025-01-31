@@ -3,7 +3,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import models.DatabaseConnection;
+import Models.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

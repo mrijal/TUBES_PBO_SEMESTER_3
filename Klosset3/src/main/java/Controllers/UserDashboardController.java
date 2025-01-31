@@ -7,8 +7,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import models.Asset;
-import models.DatabaseConnection;
+import Models.Asset;
+import Models.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
