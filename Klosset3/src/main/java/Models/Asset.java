@@ -6,13 +6,14 @@ public class Asset {
     private String category;
     private String description;
     private String status;
-
-    public Asset(int id, String name, String category, String description, String status) {
+    private String created_at;
+    public Asset(int id, String name, String category, String description, String status, String created_at) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.description = description;
         this.status = status;
+        this.created_at = created_at;
     }
 
     public int getId() {
@@ -33,5 +34,8 @@ public class Asset {
 
     public String getStatus() {
         return status;
+    }
+    public String getCreated_at(){
+        return created_at;
     }
 }

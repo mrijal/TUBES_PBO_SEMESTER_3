@@ -14,36 +14,59 @@ public class AddAssetController {
     @FXML private ComboBox<String> categoryBox;
     @FXML private TextArea descriptionField;
 
+    private UserDashboardController dashboardController; // Tambahkan variabel
+
     @FXML
     public void initialize() {
         categoryBox.getItems().addAll("Elektronik", "Kendaraan", "Properti", "Lainnya");
     }
 
-    public void submitAsset() {
-        String name = nameField.getText();
-        String category = categoryBox.getValue();
-        String description = descriptionField.getText();
-
-        if (name.isEmpty() || category == null || description.isEmpty()) {
-            showAlert("Harap isi semua field!");
-            return;
-        }
-
-        try (Connection connection = DatabaseConnection.connect()) {
-            String query = "INSERT INTO assets (name, category, description, status, created_by) VALUES (?, ?, ?, 'pending', ?)";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, name);
-            statement.setString(2, category);
-            statement.setString(3, description);
-            statement.setInt(4, 1); // Ganti dengan ID user yang login
-            statement.executeUpdate();
-
-            showAlert("Aset berhasil diajukan!");
-            closeForm();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void setDashboardController(UserDashboardController controller) {
+        this.dashboardController = controller;
     }
+
+   public void submitAsset() {
+    String name = nameField.getText();
+    String category = categoryBox.getValue();
+    String description = descriptionField.getText();
+
+    if (name.isEmpty() || category == null || description.isEmpty()) {
+        showAlert("Harap isi semua field!");
+        return;
+    }
+
+    try (Connection connection = DatabaseConnection.connect()) {
+        String query = "INSERT INTO assets (name, category, description, status, created_by) VALUES (?, ?, ?, 'pending', ?)";
+        PreparedStatement statement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+        statement.setString(1, name);
+        statement.setString(2, category);
+        statement.setString(3, description);
+        statement.setInt(4, 2); // Ganti dengan ID user yang login
+        statement.executeUpdate();
+
+        // Ambil ID aset yang baru saja dibuat
+        int assetId = -1;
+        var rs = statement.getGeneratedKeys();
+        if (rs.next()) {
+            assetId = rs.getInt(1);
+        }
+
+        // Tambahkan log aktivitas
+        if (assetId != -1) {
+            logActivity(2, "Mengajukan aset", assetId);
+        }
+
+        showAlert("Aset berhasil diajukan!");
+
+        if (dashboardController != null) {
+            dashboardController.loadAssets(); // Perbarui tabel setelah submit
+        }
+
+        closeForm();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
 
     public void closeForm() {
         Stage stage = (Stage) nameField.getScene().getWindow();
@@ -54,4 +77,16 @@ public class AddAssetController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
         alert.show();
     }
+    private void logActivity(int userId, String action, int assetId) {
+    try (Connection connection = DatabaseConnection.connect()) {
+        String query = "INSERT INTO activity_logs (id_user, action, id_asset, timestamp) VALUES (?, ?, ?, NOW())";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, userId);
+        statement.setString(2, action);
+        statement.setInt(3, assetId);
+        statement.executeUpdate();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
 }

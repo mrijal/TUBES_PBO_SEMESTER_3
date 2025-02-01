@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.UserDashboardController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controllers.UserDashboardController">
     <children>
-        <Label text="User Dashboard" layoutX="150" layoutY="20" style="-fx-font-size: 24px;" />
-        <TableView fx:id="assetsTable" layoutX="50" layoutY="80" prefWidth="500" prefHeight="300">
+        <Label layoutX="150" layoutY="20" style="-fx-font-size: 24px;" text="User Dashboard" />
+        <TableView fx:id="assetsTable" layoutX="50" layoutY="80" prefHeight="300" prefWidth="500">
             <columns>
-                <TableColumn text="Nama Aset" fx:id="colName" />
-                <TableColumn text="Kategori" fx:id="colCategory" />
-                <TableColumn text="Status" fx:id="colStatus" />
+                <TableColumn fx:id="colName" text="Nama Aset" />
+                <TableColumn fx:id="colCategory" text="Kategori" />
+                <TableColumn fx:id="colStatus" text="Status" />
             </columns>
         </TableView>
-        <Button text="Ajukan Aset" layoutX="200" layoutY="400" onAction="#openAddAssetForm" />
+        <Button layoutX="206.0" layoutY="400.0" onAction="#openAddAssetForm" text="Ajukan Aset" />
+        <Button layoutX="120.0" layoutY="400.0" onAction="#logactivity" text="Log" />
+        <Button fx:id="logoutButton" layoutX="350" layoutY="400" onAction="#logout" text="Logout" />
     </children>
 </AnchorPane>

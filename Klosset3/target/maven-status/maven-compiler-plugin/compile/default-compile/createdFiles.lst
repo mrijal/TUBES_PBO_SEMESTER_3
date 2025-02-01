@@ -9,6 +9,7 @@ Controllers\AddAssetController.class
 Controllers\MenuController.class
 Controllers\LogActivityController.class
 Controllers\UserDashboardController.class
+Controllers\AdminDashboardController$1.class
 Controllers\AdminDashboardController.class
 Controllers\ReportController.class
 Models\User.class

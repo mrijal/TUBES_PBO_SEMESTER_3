@@ -18,6 +18,8 @@ public class LogActivityController {
     @FXML private TableColumn<ActivityLog, String> colAction;
     @FXML private TableColumn<ActivityLog, String> colAsset;
     @FXML private TableColumn<ActivityLog, String> colTimestamp;
+    private UserDashboardController dashboardController;
+    private AdminDashboardController DashboardController;
 
     @FXML
     public void initialize() {
@@ -33,8 +35,8 @@ public class LogActivityController {
         try (Connection connection = DatabaseConnection.connect()) {
             String query = "SELECT activity_logs.id_log, users.username, activity_logs.action, assets.name, activity_logs.timestamp " +
                     "FROM activity_logs " +
-                    "JOIN users ON activity_logs.user_id = users.id_user " +
-                    "LEFT JOIN assets ON activity_logs.asset_id = assets.id_asset";
+                    "JOIN users ON activity_logs.id_user = users.id_user " +
+                    "LEFT JOIN assets ON activity_logs.id_asset = assets.id_asset";
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -50,4 +52,10 @@ public class LogActivityController {
             e.printStackTrace();
         }
     }
+        public void setDashboardController(UserDashboardController controller) {
+        this.dashboardController = controller;
+    }
+        public void setDashboardController(AdminDashboardController controller){
+            this.DashboardController = controller;
+        }
 }

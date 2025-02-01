@@ -1,22 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.AdminDashboardController">
+<AnchorPane prefHeight="425.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminDashboardController">
     <children>
-        <Label text="Admin Dashboard" layoutX="150" layoutY="20" style="-fx-font-size: 24px;" />
-        <TableView fx:id="assetsTable" layoutX="50" layoutY="80" prefWidth="500" prefHeight="300">
+        <Label layoutX="172.0" layoutY="57.0" style="-fx-font-size: 24px;" text="Admin Dashboard" />
+        <TableView fx:id="assetsTable" layoutX="173.0" layoutY="101.0" prefHeight="273.0" prefWidth="377.0">
             <columns>
-                <TableColumn text="ID" fx:id="colId" />
-                <TableColumn text="Nama Aset" fx:id="colName" />
-                <TableColumn text="Kategori" fx:id="colCategory" />
-                <TableColumn text="Status" fx:id="colStatus" />
+                <TableColumn fx:id="colId" prefWidth="37.33331298828125" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="91.33332824707031" text="Nama Aset" />
+                <TableColumn fx:id="colCategory" prefWidth="89.99993896484375" text="Kategori" />
+                <TableColumn fx:id="colStatus" prefWidth="67.33331298828125" text="Status" />
+                <TableColumn fx:id="colcreated_at" prefWidth="89.99998982747394" text="Tanggal" />
             </columns>
         </TableView>
-        <Button text="Setujui" layoutX="100" layoutY="400" onAction="#approveAsset" />
-        <Button text="Tolak" layoutX="200" layoutY="400" onAction="#rejectAsset" />
-        <Button text="Hapus" layoutX="300" layoutY="400" onAction="#deleteAsset" />
+        <Button layoutX="246.0" layoutY="387.0" onAction="#rejectAsset" text="Tolak" />
+        <Button layoutX="516.0" layoutY="387.0" onAction="#deleteAsset" text="Hapus" />
+        <Button fx:id="logoutButton" layoutX="519.0" layoutY="31.0" onAction="#logout" text="Keluar" />
+      <AnchorPane>
+         <children>
+            <BorderPane>
+               <center>
+                  <VBox prefHeight="425.0" prefWidth="141.0" style="-fx-background-color: #0a8fc2;">
+                     <children>
+                        <ImageView fitHeight="115.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                              <Image url="@/image/klosset_final_2.png" />
+                         </image>   
+                            
+                        </ImageView>
+                        
+                     </children></VBox>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+        <Button layoutX="180.0" layoutY="387.0" onAction="#approveAsset" text="Setujui" />
+        <Button layoutX="457.0" layoutY="387.0" onAction="#logactivity1" text="Log" />
+      <TextField fx:id="search" layoutX="392.0" layoutY="62.0" promptText="cari" />
     </children>
 </AnchorPane>

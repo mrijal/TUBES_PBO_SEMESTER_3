@@ -9,7 +9,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import Models.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -60,4 +59,8 @@ public class LoginControllers {
             e.printStackTrace();
         }
     }
+
+    // Tambahkan fitur logout
+    
+    
 }
