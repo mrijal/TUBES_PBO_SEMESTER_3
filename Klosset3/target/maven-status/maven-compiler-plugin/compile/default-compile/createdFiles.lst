@@ -4,6 +4,7 @@ Models\ReportGenerator.class
 Models\LogHelper.class
 Controllers\DashboardController.class
 Controllers\AddAssetApprovalController.class
+Controllers\UserDashboardController$1.class
 module-info.class
 Controllers\AddAssetController.class
 Controllers\MenuController.class

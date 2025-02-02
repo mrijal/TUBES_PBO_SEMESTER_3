@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.LogActivityController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="573.0" style="-fx-background-color: #28a3d2;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controllers.LogActivityController">
     <children>
-        <Label text="Log Aktivitas" layoutX="150" layoutY="20" style="-fx-font-size: 24px;" />
-        <TableView fx:id="logTable" layoutX="50" layoutY="80" prefWidth="500" prefHeight="300">
+      <HBox layoutX="205.0" layoutY="28.0" prefHeight="48.0" prefWidth="175.0" style="-fx-background-color: #ffffffff;" />
+        <Label layoutX="225.0" layoutY="34.0" style="-fx-font-size: 24px;" text="Log Aktivitas" />
+        <TableView fx:id="logTable" layoutX="43.0" layoutY="92.0" prefHeight="309.0" prefWidth="501.0">
             <columns>
-                <TableColumn text="User" fx:id="colUser" />
-                <TableColumn text="Aksi" fx:id="colAction" />
-                <TableColumn text="Aset" fx:id="colAsset" />
-                <TableColumn text="Waktu" fx:id="colTimestamp" />
+                <TableColumn fx:id="colUser" prefWidth="114.00000381469727" text="User" />
+                <TableColumn fx:id="colAction" prefWidth="97.33334350585938" text="Aksi" />
+                <TableColumn fx:id="colAsset" prefWidth="144.66661071777344" text="Aset" />
+                <TableColumn fx:id="colTimestamp" prefWidth="145.33334350585938" text="Waktu" />
             </columns>
         </TableView>
     </children>

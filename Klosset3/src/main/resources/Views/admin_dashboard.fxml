@@ -18,14 +18,14 @@
             <columns>
                 <TableColumn fx:id="colId" prefWidth="37.33331298828125" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="91.33332824707031" text="Nama Aset" />
-                <TableColumn fx:id="colCategory" prefWidth="89.99993896484375" text="Kategori" />
-                <TableColumn fx:id="colStatus" prefWidth="67.33331298828125" text="Status" />
-                <TableColumn fx:id="colcreated_at" prefWidth="89.99998982747394" text="Tanggal" />
+                <TableColumn fx:id="colCategory" prefWidth="76.0" text="Kategori" />
+                <TableColumn fx:id="colStatus" prefWidth="60.0" text="Status" />
+                <TableColumn fx:id="colcreated_at" prefWidth="111.33330281575519" text="Tanggal" />
             </columns>
         </TableView>
-        <Button layoutX="246.0" layoutY="387.0" onAction="#rejectAsset" text="Tolak" />
-        <Button layoutX="516.0" layoutY="387.0" onAction="#deleteAsset" text="Hapus" />
-        <Button fx:id="logoutButton" layoutX="519.0" layoutY="31.0" onAction="#logout" text="Keluar" />
+        <Button layoutX="246.0" layoutY="387.0" onAction="#rejectAsset" style="-fx-background-color: #28a3d2;" text="Tolak" textFill="WHITE" />
+        <Button layoutX="516.0" layoutY="387.0" onAction="#deleteAsset" style="-fx-background-color: #28a3d2;" text="Hapus" textFill="#f4f4f4" />
+        <Button fx:id="logoutButton" layoutX="519.0" layoutY="31.0" onAction="#logout" style="-fx-background-color: #28a3d2;" text="Keluar" textFill="#fffdfd" />
       <AnchorPane>
          <children>
             <BorderPane>
@@ -44,8 +44,8 @@
             </BorderPane>
          </children>
       </AnchorPane>
-        <Button layoutX="180.0" layoutY="387.0" onAction="#approveAsset" text="Setujui" />
-        <Button layoutX="457.0" layoutY="387.0" onAction="#logactivity1" text="Log" />
-      <TextField fx:id="search" layoutX="392.0" layoutY="62.0" promptText="cari" />
+        <Button layoutX="180.0" layoutY="387.0" onAction="#approveAsset" style="-fx-background-color: #28a3d2;" text="Setujui" textFill="WHITE" />
+        <Button layoutX="457.0" layoutY="387.0" onAction="#logactivity1" style="-fx-background-color: #28a3d2;" text="Log" textFill="#fdfafa" />
+      <TextField fx:id="search" layoutX="392.0" layoutY="62.0" promptText="cari" style="-fx-background-color: #28a3d2; -fx-prompt-text-fill: white;" />
     </children>
 </AnchorPane>
