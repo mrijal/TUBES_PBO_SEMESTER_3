@@ -15,7 +15,7 @@ public class Asset {
         this.description = description;
         this.status = status;
         this.created_at = created_at;
-        this.barcodePath = "src/main/resources/barcodes/asset_" + id + ".png";
+        this.barcodePath = "src/main/resources/barcodes/asset_" + name + ".png";
     }
 
     public int getId() {
