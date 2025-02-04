@@ -2,6 +2,7 @@ Models\ActivityLog.class
 Controllers\LoginControllers.class
 Models\ReportGenerator.class
 Models\LogHelper.class
+Models\Admin.class
 Controllers\DashboardController.class
 Controllers\AddAssetApprovalController.class
 Controllers\UserDashboardController$1.class

@@ -1,9 +1,9 @@
-package models;
+package Models;
 
-public class User { 
-    private int id;
-    private String username;
-    private String role;
+public class User {
+    protected int id;
+    protected String username;
+    protected String role;
 
     public User(int id, String username, String role) {
         this.id = id;
@@ -11,15 +11,7 @@ public class User {
         this.role = role;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getRole() {
-        return role;
-    }
+    public int getId() { return id; }
+    public String getUsername() { return username; }
+    public String getRole() { return role; }
 }

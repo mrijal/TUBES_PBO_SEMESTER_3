@@ -8,6 +8,7 @@ module com.mycompany.klosset3 {//klosset3 {
     opens Controllers to javafx.fxml;
     opens Models to javafx.fxml;
     opens com.mycompany.klosset3 to javafx.fxml;
+    
 
     
     exports Controllers;

@@ -4,6 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import Models.DatabaseConnection;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -89,4 +93,5 @@ public class AddAssetController {
         e.printStackTrace();
     }
 }
+    
 }

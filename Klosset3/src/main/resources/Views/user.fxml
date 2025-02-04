@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="411.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserDashboardController">
     <children>
@@ -21,9 +22,18 @@
                  <TableColumn fx:id="colcreated_at" prefWidth="129.99998982747394" text="Tanggal" />
             </columns>
         </TableView>
-        <Button layoutX="455.0" layoutY="390.0" onAction="#openAddAssetForm" style="-fx-background-color: #0a8fc2;" text="Ajukan Aset" textFill="WHITE" />
-        <Button layoutX="340.0" layoutY="390.0" onAction="#logactivity" style="-fx-background-color: #0a8fc2;" text="Log" textFill="WHITE" />
-        <Button fx:id="logoutButton" layoutX="523.0" layoutY="14.0" onAction="#logout" style="-fx-background-color: #0a8fc2;" text="Logout" textFill="WHITE" />
+        <Button layoutX="455.0" layoutY="390.0" onAction="#openAddAssetForm" style="-fx-background-color: #0a8fc2;" text="Ajukan Aset" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Semibold" size="12.0" />
+         </font></Button>
+        <Button layoutX="340.0" layoutY="390.0" onAction="#logactivity" style="-fx-background-color: #0a8fc2;" text="Log" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Semibold" size="12.0" />
+         </font></Button>
+        <Button fx:id="logoutButton" layoutX="523.0" layoutY="14.0" onAction="#logout" style="-fx-background-color: #0a8fc2;" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Semibold" size="12.0" />
+         </font></Button>
       <TextField fx:id="search" layoutX="427.0" layoutY="55.0" promptText="Cari" style="-fx-background-color: #0a8fc2; -fx-prompt-text-fill: white;" />
       <VBox prefHeight="419.0" prefWidth="191.0" style="-fx-background-color: #0a8fc2;">
          <children>
