@@ -7,6 +7,7 @@ import Models.DatabaseConnection;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import Models.BarcodeGenerator;
 
 
 import java.sql.Connection;
@@ -19,6 +20,7 @@ public class AddAssetController {
     @FXML private TextArea descriptionField;
 
     private UserDashboardController dashboardController; // Tambahkan variabel
+    
 
     @FXML
     public void initialize() {
@@ -40,24 +42,34 @@ public class AddAssetController {
     }
 
     try (Connection connection = DatabaseConnection.connect()) {
-        String query = "INSERT INTO assets (name, category, description, status, created_by) VALUES (?, ?, ?, 'pending', ?)";
+        String query = "INSERT INTO assets (name, category, description, status, created_by, barcode_path) VALUES (?, ?, ?, 'pending', ?, ?)";
         PreparedStatement statement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
         statement.setString(1, name);
         statement.setString(2, category);
         statement.setString(3, description);
-        statement.setInt(4, 2); // Ganti dengan ID user yang login
+        statement.setInt(4, 2);
+        String barcode_path = "src/main/resources/barcodes/asset_" + name + ".png";
+        BarcodeGenerator.generateBarcode( name, category, description);
+        statement.setString(5, barcode_path);
+        
+        
+
         statement.executeUpdate();
+        
+        
 
         // Ambil ID aset yang baru saja dibuat
         int assetId = -1;
         var rs = statement.getGeneratedKeys();
         if (rs.next()) {
             assetId = rs.getInt(1);
+            BarcodeGenerator.generateBarcode( name, category, description);
         }
 
         // Tambahkan log aktivitas
         if (assetId != -1) {
             logActivity(2, "Mengajukan aset", assetId);
+            
         }
 
         showAlert("Aset berhasil diajukan!");

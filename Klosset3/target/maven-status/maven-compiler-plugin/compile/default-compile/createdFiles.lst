@@ -4,6 +4,7 @@ Models\ReportGenerator.class
 Models\LogHelper.class
 Models\Admin.class
 Controllers\DashboardController.class
+Models\BarcodeGenerator.class
 Controllers\AddAssetApprovalController.class
 Controllers\UserDashboardController$1.class
 module-info.class
@@ -11,6 +12,7 @@ Controllers\AddAssetController.class
 Controllers\MenuController.class
 Controllers\LogActivityController.class
 Controllers\UserDashboardController.class
+Controllers\UserDashboardController$2.class
 Controllers\AdminDashboardController$1.class
 Controllers\AdminDashboardController.class
 Controllers\ReportController.class

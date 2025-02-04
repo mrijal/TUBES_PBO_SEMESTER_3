@@ -7,6 +7,7 @@ public class Asset {
     private String description;
     private String status;
     private String created_at;
+    private String barcodePath;
     public Asset(int id, String name, String category, String description, String status, String created_at) {
         this.id = id;
         this.name = name;
@@ -14,6 +15,7 @@ public class Asset {
         this.description = description;
         this.status = status;
         this.created_at = created_at;
+        this.barcodePath = "src/main/resources/barcodes/asset_" + id + ".png";
     }
 
     public int getId() {
@@ -37,5 +39,8 @@ public class Asset {
     }
     public String getCreated_at(){
         return created_at;
+    }
+    public String getBarcodePath() {
+        return barcodePath;
     }
 }

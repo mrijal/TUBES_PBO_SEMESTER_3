@@ -9,13 +9,18 @@ import javafx.fxml.FXMLLoader;
 import Models.Asset;
 import Models.DatabaseConnection;
 import com.mycompany.klosset3.App;
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 
 public class UserDashboardController {
 
@@ -26,13 +31,15 @@ public class UserDashboardController {
     @FXML private TableColumn<Asset, String> colcreated_at;
     @FXML private Button logoutButton;
     @FXML private TextField search;
-
+    @FXML private ImageView barcodeImage;
+    @FXML private TableColumn<Asset, String> colBarcode;
     
     public void initialize() {
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         colcreated_at.setCellValueFactory(new PropertyValueFactory<>("created_at"));
+        colBarcode.setCellValueFactory(new PropertyValueFactory<>("barcodePath"));
         loadAssets();
         
         search.textProperty().addListener(new ChangeListener<String>() {
@@ -41,7 +48,33 @@ public class UserDashboardController {
                 search(newValue);
             }
         });
+    colBarcode.setCellFactory(column -> {
+    TableCell<Asset, String> cell = new TableCell<>() {
+        private final Button button = new Button("Lihat Barcode");
+
+        {
+            button.setOnAction((ActionEvent event) -> {
+               Asset asset = getTableView().getItems().get(getIndex());
+                showBarcode(asset.getBarcodePath());
+            });
+        }
+
+        @Override
+        protected void updateItem(String barcodePath, boolean empty) {
+            super.updateItem(barcodePath, empty);
+            if (empty || barcodePath == null) {
+                setGraphic(null);
+            } else {
+                setGraphic(button);
+            }
+        }
+    };
+    return cell;
+});
+
+
     }
+    
 
     public void loadAssets() {
         assetsTable.getItems().clear();
@@ -59,6 +92,17 @@ public class UserDashboardController {
                         resultSet.getString("created_at")
                 ));
             }
+                 assetsTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+                if (newSelection != null) {
+                    File file = new File(newSelection.getBarcodePath());
+                    if (file.exists()) {
+                        barcodeImage.setImage(new Image(file.toURI().toString()));
+                    } else {
+                        barcodeImage.setImage(null);
+                    }
+                }
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -136,6 +180,19 @@ public class UserDashboardController {
             e.printStackTrace();
         }
     }
+    private void showBarcode(String barcodePath) {
+    if (barcodePath != null && !barcodePath.isEmpty()) {
+        ImageView imageView = new ImageView(new Image("file:" + barcodePath));
+        imageView.setFitWidth(300);
+        imageView.setPreserveRatio(true);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Barcode");
+        alert.setHeaderText("Scan Barcode ini");
+        alert.getDialogPane().setContent(imageView);
+        alert.showAndWait();
+    }
+}
 
 }
    

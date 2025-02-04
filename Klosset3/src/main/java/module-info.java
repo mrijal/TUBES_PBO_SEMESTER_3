@@ -3,6 +3,8 @@ module com.mycompany.klosset3 {//klosset3 {
     requires javafx.fxml;
     requires java.sql;
     requires java.base;
+    requires com.google.zxing;
+    requires com.google.zxing.javase;
     
     
     opens Controllers to javafx.fxml;

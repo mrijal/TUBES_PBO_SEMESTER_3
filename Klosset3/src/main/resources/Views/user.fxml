@@ -20,6 +20,7 @@
                 <TableColumn fx:id="colCategory" prefWidth="85.33334350585938" text="Kategori" />
                 <TableColumn fx:id="colStatus" prefWidth="66.00001525878906" text="Status" />
                  <TableColumn fx:id="colcreated_at" prefWidth="129.99998982747394" text="Tanggal" />
+                 <TableColumn fx:id="colBarcode" text="Barcode Path" prefWidth="200" />
             </columns>
         </TableView>
         <Button layoutX="455.0" layoutY="390.0" onAction="#openAddAssetForm" style="-fx-background-color: #0a8fc2;" text="Ajukan Aset" textFill="WHITE">
@@ -42,6 +43,8 @@
                               <Image url="@/image/klosset_final_2.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="barcodeImage" layoutX="600.0" layoutY="150.0" fitWidth="200" fitHeight="100"/>
+
          </children>
       </VBox>
     </children>
