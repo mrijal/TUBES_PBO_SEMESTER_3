@@ -16,6 +16,7 @@ Controllers\UserDashboardController$2.class
 Controllers\AdminDashboardController$1.class
 Controllers\AdminDashboardController.class
 Controllers\ReportController.class
+main\App.class
 Models\User.class
 Models\DatabaseConnection.class
 Models\Asset.class

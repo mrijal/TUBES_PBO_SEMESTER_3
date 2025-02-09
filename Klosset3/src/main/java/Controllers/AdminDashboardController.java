@@ -1,4 +1,4 @@
-package controllers;
+package Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -23,14 +23,22 @@ import javafx.stage.Stage;
 
 public class AdminDashboardController {
 
-    @FXML private TableView<Asset> assetsTable;
-    @FXML private TableColumn<Asset, Integer> colId;
-    @FXML private TableColumn<Asset, String> colName;
-    @FXML private TableColumn<Asset, String> colCategory;
-    @FXML private TableColumn<Asset, String> colStatus;
-    @FXML private TableColumn<Asset, String> colcreated_at;
-    @FXML private Button logoutButton;
-    @FXML private TextField search;
+    @FXML
+    private TableView<Asset> assetsTable;
+    @FXML
+    private TableColumn<Asset, Integer> colId;
+    @FXML
+    private TableColumn<Asset, String> colName;
+    @FXML
+    private TableColumn<Asset, String> colCategory;
+    @FXML
+    private TableColumn<Asset, String> colStatus;
+    @FXML
+    private TableColumn<Asset, String> colcreated_at;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private TextField search;
 
     @FXML
     public void initialize() {
@@ -41,8 +49,8 @@ public class AdminDashboardController {
         colcreated_at.setCellValueFactory(new PropertyValueFactory<>("created_at"));
 
         loadAssets();
-         search.textProperty().addListener(new ChangeListener<String>() {
-          
+        search.textProperty().addListener(new ChangeListener<String>() {
+
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 search(newValue);
             }
@@ -62,8 +70,7 @@ public class AdminDashboardController {
                         resultSet.getString("category"),
                         resultSet.getString("description"),
                         resultSet.getString("status"),
-                        resultSet.getString("created_at")
-                ));
+                        resultSet.getString("created_at")));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,22 +126,23 @@ public class AdminDashboardController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
         alert.show();
     }
-    public void logout() {
-    try {
-        
-        Stage currentStage = (Stage) logoutButton.getScene().getWindow();
-        currentStage.close(); 
 
-        
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/klosset3/login.fxml"));
-        Stage loginStage = new Stage();
-        loginStage.setScene(new Scene(loader.load()));
-        loginStage.setTitle("Login");
-        loginStage.show();
-    } catch (IOException e) {
-        e.printStackTrace();
+    public void logout() {
+        try {
+
+            Stage currentStage = (Stage) logoutButton.getScene().getWindow();
+            currentStage.close();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/klosset3/login.fxml"));
+            Stage loginStage = new Stage();
+            loginStage.setScene(new Scene(loader.load()));
+            loginStage.setTitle("Login");
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-}
+
     public void search(String keyword) {
         assetsTable.getItems().clear();
         try (Connection connection = DatabaseConnection.connect()) {
@@ -151,26 +159,27 @@ public class AdminDashboardController {
                         resultSet.getString("category"),
                         resultSet.getString("description"),
                         resultSet.getString("status"),
-                        resultSet.getString("created_at")
-                ));
+                        resultSet.getString("created_at")));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     private void logActivity(int userId, String action, int assetId) {
-    try (Connection connection = DatabaseConnection.connect()) {
-        String query = "INSERT INTO activity_logs (id_user, action, id_asset, timestamp) VALUES (?, ?, ?, NOW())";
-        PreparedStatement statement = connection.prepareStatement(query);
-        statement.setInt(1, userId);
-        statement.setString(2, action);
-        statement.setInt(3, assetId);
-        statement.executeUpdate();
-    } catch (Exception e) {
-        e.printStackTrace();
+        try (Connection connection = DatabaseConnection.connect()) {
+            String query = "INSERT INTO activity_logs (id_user, action, id_asset, timestamp) VALUES (?, ?, ?, NOW())";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, userId);
+            statement.setString(2, action);
+            statement.setInt(3, assetId);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-}
-     public void logactivity1() {
+
+    public void logactivity1() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/log_activity.fxml"));
             Stage stage = new Stage();

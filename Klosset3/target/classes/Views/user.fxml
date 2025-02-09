@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="411.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserDashboardController">
+<AnchorPane prefHeight="411.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserDashboardController">
     <children>
         <Label layoutX="234.0" layoutY="50.0" style="-fx-font-size: 24px;" text="User Dashboard" />
         <TableView fx:id="assetsTable" layoutX="206.0" layoutY="85.0" prefHeight="300" prefWidth="371.0">

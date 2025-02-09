@@ -1,4 +1,4 @@
-package controllers;
+package Controllers;
 
 import Models.DatabaseConnection;
 import javafx.fxml.FXML;
@@ -61,6 +61,5 @@ public class LoginControllers {
     }
 
     // Tambahkan fitur logout
-    
-    
+
 }
